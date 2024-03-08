@@ -6,7 +6,7 @@ class Player:
         while True:
             name = input('Please Enter Your name in letter Only: ')
             if name.isalpha():
-                name = name
+                self.name = name
                 break
             print('Invalid name , Please Enter letter Only')
 
@@ -15,6 +15,6 @@ class Player:
         while True:
             symbol = input('Please Enter Your Symbol in single character: ')
             if symbol.isalpha() and len(symbol) == 1:
-                symbol = symbol.upper()
+                self.symbol = symbol.upper()
                 break
             print('Invalid Symbol , Please Enter Single Letter')

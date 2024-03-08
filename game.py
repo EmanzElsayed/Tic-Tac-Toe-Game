@@ -21,18 +21,20 @@ class Game:
             self.play_game()
         else:
             self.quit_game()
+
     def setup_player(self):
         for index , player in enumerate(self.player , start=1):
             print(f'player {index}, Enter Your details')
             player.choose_name()
             player.choose_symbol()
             clear_screen()
-   
+
+
     def play_game(self):
         while True:
             self.play_turn()
             if self.check_win() or self.check_draw():
-                choice = self.menu.display_engame_menu
+                choice = self.menu.display_engame_menu()
                 if choice == '1':
                     self.restart_game()
                 else:
@@ -72,6 +74,8 @@ class Game:
         ] 
         for combo in combination:
             if self.board.board[combo[0]] == self.board.board[combo[1]] == self.board.board[combo[2]]:
+              self.board.display_board()
+              print(f"{self.player[1- self.current_player_index].name} Win!")
               return True
         return False
     def check_draw(self):
